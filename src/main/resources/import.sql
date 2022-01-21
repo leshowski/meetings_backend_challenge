@@ -23,7 +23,10 @@ INSERT INTO Room(id,name,max_Allocation,floor_id) values (20103,'B2 F2 ROOM1',10
 INSERT INTO Capability(id,name) values (01,'Computer');
 INSERT INTO Capability(id,name) values (02,'Whiteboard');
 INSERT INTO Capability(id,name) values (03,'TV');
-INSERT INTO Capability(id,name) values (04,'Computer');
+INSERT INTO Capability(id,name) values (04,'Projector Screen');
+INSERT INTO Capability(id,name) values (05,'Microphone');
+INSERT INTO Capability(id,name) values (06,'Telephone');
+
 
 insert into rel_room_capability (fk_room,fk_capability) values (10101,01);
 insert into rel_room_capability (fk_room,fk_capability) values (10101,02);
@@ -32,4 +35,13 @@ insert into rel_room_capability (fk_room,fk_capability) values (10102,03);
 insert into rel_room_capability (fk_room,fk_capability) values (10102,04);
 insert into rel_room_capability (fk_room,fk_capability) values (10103,01);
 insert into rel_room_capability (fk_room,fk_capability) values (10103,03);
+
+insert into rel_room_capability (fk_room,fk_capability) values (10201,01);
+insert into rel_room_capability (fk_room,fk_capability) values (10201,02);
+insert into rel_room_capability (fk_room,fk_capability) values (10201,03);
+insert into rel_room_capability (fk_room,fk_capability) values (10201,04);
+
+insert into rel_room_capability (fk_room,fk_capability) values (10202,04);
+insert into rel_room_capability (fk_room,fk_capability) values (10103,05);
+insert into rel_room_capability (fk_room,fk_capability) values (10103,06);
 
