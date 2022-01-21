@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class ResponseScheduleRoom {
+public class ResponseBookRoom {
 
   @JsonProperty("http_status")
   private int httpStatus;

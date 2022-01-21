@@ -1,11 +1,11 @@
 package com.globant.challenge.jci.service;
 
-import com.globant.challenge.jci.application.converter.PostRequestScheduleRoomToReservation;
+import com.globant.challenge.jci.application.converter.PostRequestBookRoomToReservation;
 import com.globant.challenge.jci.application.exception.NotAvailableReservationException;
 import com.globant.challenge.jci.application.utils.DateUtils;
 import com.globant.challenge.jci.model.dao.ReservationRepository;
 
-import com.globant.challenge.jci.model.dto.json.PostRequestScheduleRoom;
+import com.globant.challenge.jci.model.dto.json.PostRequestBookRoom;
 
 import com.globant.challenge.jci.model.entity.Reservation;
 
@@ -38,11 +38,12 @@ public class ReservationServiceImpl implements ReservationService {
   }
 
   @Override
-  public void saveReservation(PostRequestScheduleRoom postRequestScheduleRoom) throws Exception {
+  public void saveReservation(PostRequestBookRoom postRequestBookRoom) throws Exception {
 
-    if(isRoomAvailable(postRequestScheduleRoom.getFromDate(),
-        postRequestScheduleRoom.getTimeSpan(), postRequestScheduleRoom.getRoomCode())){
-      reservationRepository.save(PostRequestScheduleRoomToReservation.INSTANCE.convert(postRequestScheduleRoom));
+    if(isRoomAvailable(postRequestBookRoom.getFromDate(),
+        postRequestBookRoom.getTimeSpan(), postRequestBookRoom.getRoomCode())){
+      reservationRepository.save(PostRequestBookRoomToReservation.INSTANCE.convert(
+          postRequestBookRoom));
     }else{
       throw new NotAvailableReservationException();
     }

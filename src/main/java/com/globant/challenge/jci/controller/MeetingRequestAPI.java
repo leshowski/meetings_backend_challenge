@@ -3,11 +3,11 @@ package com.globant.challenge.jci.controller;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.globant.challenge.jci.model.dto.json.GetRequestAvailableRooms;
-import com.globant.challenge.jci.model.dto.json.PostRequestScheduleRoom;
+import com.globant.challenge.jci.model.dto.json.PostRequestBookRoom;
 import com.globant.challenge.jci.model.dto.json.ResponseAvailableRooms;
 import com.globant.challenge.jci.model.dto.json.ResponseBookedRooms;
 import com.globant.challenge.jci.model.dto.json.ResponseBuildings;
-import com.globant.challenge.jci.model.dto.json.ResponseScheduleRoom;
+import com.globant.challenge.jci.model.dto.json.ResponseBookRoom;
 import java.util.Date;
 import javax.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,9 +28,9 @@ public interface MeetingRequestAPI {
       @RequestBody @Valid GetRequestAvailableRooms getRequestAvailableRooms
   );
 
-  @PostMapping(path = "/scheduleRoom", produces = APPLICATION_JSON_VALUE)
-  public ResponseEntity<ResponseScheduleRoom> scheduleRoom(
-      @RequestBody @Valid PostRequestScheduleRoom postRequestScheduleRoom
+  @PostMapping(path = "/bookRoom", produces = APPLICATION_JSON_VALUE)
+  public ResponseEntity<ResponseBookRoom> bookRoom(
+      @RequestBody @Valid PostRequestBookRoom postRequestBookRoom
   ) throws Exception;
 
   @GetMapping(path = "/bookedRooms", produces = APPLICATION_JSON_VALUE)

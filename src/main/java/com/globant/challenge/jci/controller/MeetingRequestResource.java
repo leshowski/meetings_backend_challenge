@@ -5,15 +5,14 @@ import com.globant.challenge.jci.application.converter.ReservationToJsonBookedRo
 import com.globant.challenge.jci.application.converter.RoomToJsonAvailableRoom;
 import com.globant.challenge.jci.application.utils.DateUtils;
 import com.globant.challenge.jci.model.dto.json.GetRequestAvailableRooms;
-import com.globant.challenge.jci.model.dto.json.PostRequestScheduleRoom;
+import com.globant.challenge.jci.model.dto.json.PostRequestBookRoom;
 import com.globant.challenge.jci.model.dto.json.ResponseAvailableRooms;
 import com.globant.challenge.jci.model.dto.json.ResponseBookedRooms;
 import com.globant.challenge.jci.model.dto.json.ResponseBuildings;
-import com.globant.challenge.jci.model.dto.json.ResponseScheduleRoom;
+import com.globant.challenge.jci.model.dto.json.ResponseBookRoom;
 import com.globant.challenge.jci.service.AvailableRoomService;
 import com.globant.challenge.jci.service.BuildingService;
 import com.globant.challenge.jci.service.ReservationService;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,18 +63,18 @@ public class MeetingRequestResource implements MeetingRequestAPI {
   }
 
   @Override
-  public ResponseEntity<ResponseScheduleRoom> scheduleRoom(
-      PostRequestScheduleRoom postRequestScheduleRoom) throws Exception {
-    reservationService.saveReservation(postRequestScheduleRoom);
+  public ResponseEntity<ResponseBookRoom> bookRoom(
+      PostRequestBookRoom postRequestBookRoom) throws Exception {
+    reservationService.saveReservation(postRequestBookRoom);
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(
-            ResponseScheduleRoom.builder()
+            ResponseBookRoom.builder()
                     .httpStatus(HttpStatus.CREATED.value())
                         .message(CREATED_ROOM_MESSAGE)
-                            .details(postRequestScheduleRoom.getRoomCode() +
-                                " "+ postRequestScheduleRoom.getTimeSpan() +
-                                " "+ postRequestScheduleRoom.getFromDate())
+                            .details(postRequestBookRoom.getRoomCode() +
+                                " "+ postRequestBookRoom.getTimeSpan() +
+                                " "+ postRequestBookRoom.getFromDate())
                                 .build()
             );
 

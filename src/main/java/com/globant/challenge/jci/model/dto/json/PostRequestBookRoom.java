@@ -15,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PostRequestScheduleRoom {
+public class PostRequestBookRoom {
 
   @NotNull
   @JsonProperty("room_code")
